@@ -1,4 +1,4 @@
-import requests
+import cloudscraper
 from bs4 import BeautifulSoup
 import time
 import re
@@ -11,7 +11,7 @@ class IVASMSScraper:
     def __init__(self, email, password):
         self.email = email
         self.password = password
-        self.session = requests.Session()
+        self.session = cloudscraper.create_scraper()
         self.base_url = "https://www.ivasms.com"
         self.is_logged_in = False
         
@@ -87,10 +87,11 @@ class IVASMSScraper:
         
         try:
             # Common paths for SMS/message history
-            possible_paths = [
+                    possible_paths = [
+                '/portal/sms/received',
                 '/messages',
                 '/sms',
-                '/history',
+
                 '/dashboard',
                 '/account',
                 '/numbers'
