@@ -87,7 +87,7 @@ class IVASMSScraper:
         
         try:
             # Common paths for SMS/message history
-                    possible_paths = [
+            possible_paths = [
                 '/portal/sms/received',
                 '/messages',
                 '/sms',
